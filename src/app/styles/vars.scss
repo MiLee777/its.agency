@@ -1,0 +1,44 @@
+:root {
+  // Font Families
+  --font-family-inter: "Inter", sans-serif;
+
+  --font-family-inter300: "inter300", sans-serif;
+  --font-family-inter400: "inter400", sans-serif;
+  --font-family-inter500: "inter500", sans-serif;
+  --font-family-inter600: "inter600", sans-serif;
+
+
+  //font-size
+  --font-size-10: 0.625rem; /* 10px */
+  --font-size-12: 0.75rem; /* 12px */
+  --font-size-14: 0.875rem; /* 14px */
+  --font-size-16: 1rem; /* 16px */ 
+  --font-size-30: 1.875rem; /* 30px */ 
+  --font-size-72: 4.5rem; /* 72px */ 
+
+  //colors
+  --color-text-dark: #1f2020;
+  --color-text-white: #ffffff;
+  --color-background-white: #ffffff;
+  --color-background-black: #000000;
+
+  // padding
+  --padding-2: 0.125rem; /* 2px */ 
+  --padding-6: 0.375rem; /* 6px */ 
+  --padding-10: 0.625rem; /* 10px */ 
+  --padding-16: 1rem; /* 16px */ 
+  --padding-18: 1.125rem; /* 18px */ 
+  --padding-20: 1.25rem; /* 20px */ 
+  --padding-24: 1.5rem; /* 24px */ 
+  --padding-26: 1.625rem; /* 26px */ 
+  --padding-30: 1.875rem; /* 30px */ 
+  --padding-32: 2rem; /* 32px */ 
+  --padding-40: 2.5rem; /* 40px */
+  --padding-45: 2.813rem; /* 45px */
+  --padding-57: 3.563rem; /* 50px */
+
+  // text align
+  --align-start: left;
+  --align-center: center;
+  --align-end: right;
+}
