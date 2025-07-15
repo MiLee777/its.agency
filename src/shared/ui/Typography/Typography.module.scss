@@ -1,0 +1,50 @@
+@use "@/app/styles/media-queries.scss";
+@use "@/app/styles/mixin.scss" as *;
+
+$font-families: (
+  inter300: --font-family-inter300,
+  inter400: --font-family-inter400,
+  inter500: --font-family-inter500,
+  inter600: --font-family-inter600,
+);
+
+$text-colors: (
+  dark: --color-text-dark,
+  white: --color-text-white,
+);
+
+$text-aligns: (
+  start: --align-start,
+  center: --align-center,
+  end: --align-end,
+);
+
+$font-sizes: (
+  h1: --font-size-72,
+  h2: --font-size-36,
+  h3: --font-size-16,
+  p: --font-size-16,
+  li: --font-size-12,
+  span: --font-size-16,
+);
+
+@each $tag, $size in $font-sizes {
+  #{$tag} {
+    font-size: var(#{$size});
+  }
+}
+
+@mixin styles($map, $property) {
+  @each $key, $value in $map {
+    &.#{"#{$key}"} {
+      #{$property}: var(#{$value});
+    }
+  }
+}
+
+.typography {
+  letter-spacing: 0.2em;
+  @include styles($font-families, font-family);
+  @include styles($text-colors, color);
+  @include styles($text-aligns, text-align); 
+}
