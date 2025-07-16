@@ -1,5 +1,5 @@
 import { getStyles } from "../../lib/getStyles";
-import styles from "Stack.module.scss";
+import styles from "./Stack.module.scss";
 
 export function Stack({
   tag = "div",
