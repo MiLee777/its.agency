@@ -1,10 +1,25 @@
 .link {
-  color: #2e7d32;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.2s;
+  position: relative;
+  color: var(--color-text-dark);
+  font-size: var(--font-size-14);
+  font-family: var(--font-family-inter400);
+  line-height: 100%;
+  text-transform: uppercase;
+  transition: 0.2s ease-in;
 
-  &:hover {
-    text-decoration: underline;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    width: 0%;
+    height: 1px;
+    background-color: currentColor;
+    transform: translateX(-50%);
+    transition: width 0.5s ease-out;
+  }
+
+  &:hover::after {
+    width: 100%;
   }
 }

@@ -1,0 +1,12 @@
+@use "@/app/styles/mixin.scss" as mixins;
+
+.header {
+  padding: var(--padding-40);
+  @include mixins.section-style;
+
+  &__tel {
+    opacity: 0.3;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+  }
+}

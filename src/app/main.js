@@ -1,4 +1,8 @@
 import "./styles/index.scss";
-import { TestUi } from "../widgets/TestUI/TestUI";
+import { Header } from "../widgets/Header/ui/Header/Header";
 
-document.getElementById("app").appendChild(TestUi());
+document.addEventListener("DOMContentLoaded", () => {
+  const app = document.getElementById("app");
+
+  app.appendChild(Header());
+})

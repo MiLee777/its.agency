@@ -3,7 +3,7 @@ import styles from "./Typography.module.scss";
 
 export function Typography({
   as = "p",
-  fontStyle = "montserrat500",
+  fontStyle = "inter300",
   color = "dark",
   align = "start",
   size,
