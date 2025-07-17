@@ -8,6 +8,7 @@ export function Button({
   fullWidth = false,
   className = "",
   onClick,
+  children,
   ...attrs
 } = {}) {
   const btn = document.createElement("button");
@@ -23,7 +24,16 @@ export function Button({
   ];
 
   btn.classList.add(...getStyles(styles.button, mods, additional));
-  btn.textContent = text;
+
+  if (text) {
+    btn.textContent = text;
+  } else if (children) {
+    if (Array.isArray(children)) {
+      children.forEach(child => btn.appendChild(child));
+    } else {
+      btn.appendChild(children);
+    }
+  }
 
   if (typeof onClick === "function") {
     btn.addEventListener("click", onClick);
