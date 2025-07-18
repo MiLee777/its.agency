@@ -1,0 +1,6 @@
+@use "@/app/styles/mixin.scss" as mixins;
+
+.category {
+  padding: var(--padding-72) var(--padding-64);
+  @include mixins.section-style;
+}
