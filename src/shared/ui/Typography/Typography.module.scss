@@ -42,9 +42,19 @@ $font-sizes: (
   }
 }
 
+.size10 {
+  font-size: var(--font-size-10);
+}
+.size12 {
+  font-size: var(--font-size-12);
+}
+.size14 {
+  font-size: var(--font-size-14);
+}
+
 .typography {
-  letter-spacing: 0.2em;
+  letter-spacing: 0.02em;
   @include styles($font-families, font-family);
   @include styles($text-colors, color);
-  @include styles($text-aligns, text-align); 
+  @include styles($text-aligns, text-align);
 }

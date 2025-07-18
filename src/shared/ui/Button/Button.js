@@ -3,7 +3,7 @@ import { getStyles } from "../../lib/getStyles.js";
 
 export function Button({
   text = "",
-  theme = "default",
+  variant = "default",
   size = "m",
   fullWidth = false,
   className = "",
@@ -13,17 +13,27 @@ export function Button({
 } = {}) {
   const btn = document.createElement("button");
 
+  const isToggle = variant === "toggle";
+
   const mods = {
     [styles.fullWidth]: fullWidth
   };
 
   const additional = [
-    styles[theme],
+    styles[variant],
     styles[size],
     ...className.split(" ").map(cls => styles[cls] || cls)
   ];
 
   btn.classList.add(...getStyles(styles.button, mods, additional));
+
+  if (isToggle) {
+    btn.setAttribute("aria-pressed", "false");
+    btn.addEventListener("click", () => {
+      const isActive = btn.classList.toggle(styles.active);
+      btn.setAttribute("aria-pressed", String(isActive));
+    });
+  }
 
   if (text) {
     btn.textContent = text;
