@@ -1,0 +1,20 @@
+.filterButton {
+  font-family: var(--font-family-inter600);
+  letter-spacing: 0.06em;
+}
+
+.popup {
+  padding: 54px 24px;
+  width: 100%;
+  height: 318px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 80vh;
+  background: white;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  overflow-y: auto;
+}
