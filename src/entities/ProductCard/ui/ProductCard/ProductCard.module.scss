@@ -1,6 +1,8 @@
+@use "@/app/styles/media-queries.scss" as *;
+
 .product {
-  width: 278px;
-  height: 376px;
+  width: 17.375rem;
+  height: 23.5rem;
   transition: 0.3s;
 
   &:hover {
@@ -43,5 +45,10 @@
     height: 1px;
     color: var(--color-text-dark);
     opacity: 0.1;
+  }
+
+  @include tablet-l {
+    width: clamp(9.75rem, calc(10vw + 50px), 17.375rem);
+    height: clamp(16.875rem, calc(15vw + 5rem), 23.5rem);
   }
 }

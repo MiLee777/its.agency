@@ -5,18 +5,19 @@
   margin: auto;
 
   @include desktop-m {
-    width: 1100px;
-    padding: 0 30px;
+    width: 100%;
+  }
+
+  @include desktop-m {
+    width: 100%;
   }
 
   @include tablet-l {
     width: 100%;
-    padding: 0 20px;
   }
 
   @include mobile-m {
     width: 100%;
-    padding: 0 10px;
   }
 }
 

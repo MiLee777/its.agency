@@ -16,6 +16,8 @@ export const productData = [
     img: border,
     category: "Новинки",
     inStock: true,
+    popularity: 95,
+    createdAt: "2025-01-15",
   },
   {
     _id: 2,
@@ -24,6 +26,8 @@ export const productData = [
     img: photo1,
     category: "Контрактные",
     inStock: true,
+    popularity: 80,
+    createdAt: "2025-01-19",
   },
   {
     _id: 3,
@@ -32,6 +36,8 @@ export const productData = [
     img: photo2,
     category: "Эксклюзивные",
     inStock: true,
+    popularity: 70,
+    createdAt: "2025-02-10",
   },
   {
     _id: 4,
@@ -40,6 +46,8 @@ export const productData = [
     img: photo3,
     category: "Новинки",
     inStock: false,
+    popularity: 98,
+    createdAt: "2025-03-01",
   },
   {
     _id: 5,
@@ -48,6 +56,8 @@ export const productData = [
     img: photo4,
     category: "Новинки",
     inStock: true,
+    popularity: 95,
+    createdAt: "2025-03-15",
   },
   {
     _id: 6,
@@ -56,6 +66,8 @@ export const productData = [
     img: photo5,
     category: "Контрактные",
     inStock: false,
+    popularity: 50,
+    createdAt: "2025-04-25",
   },
   {
     _id: 7,
@@ -64,6 +76,8 @@ export const productData = [
     img: photo6,
     category: "Эксклюзивные",
     inStock: true,
+    popularity: 40,
+    createdAt: "2025-04-26",
   },
   {
     _id: 8,
@@ -72,6 +86,8 @@ export const productData = [
     img: photo6,
     category: "Новинки",
     inStock: true,
+    popularity: 95,
+    createdAt: "2025-05-05",
   },
   {
     _id: 9,
@@ -80,6 +96,8 @@ export const productData = [
     img: photo7,
     category: "Распродажа",
     inStock: false,
+    popularity: 95,
+    createdAt: "2025-05-11",
   },
   {
     _id: 10,
@@ -88,6 +106,8 @@ export const productData = [
     img: photo8,
     category: "Новинки",
     inStock: true,
+    popularity: 90,
+    createdAt: "2025-05-15",
   },
   {
     _id: 11,
@@ -96,6 +116,8 @@ export const productData = [
     img: photo5,
     category: "Контрактные",
     inStock: false,
+    popularity: 51,
+    createdAt: "2025-05-29",
   },
   {
     _id: 12,
@@ -104,6 +126,8 @@ export const productData = [
     img: photo6,
     category: "Эксклюзивные",
     inStock: true,
+    popularity: 90,
+    createdAt: "2025-06-15",
   },
   {
     _id: 13,
@@ -112,6 +136,8 @@ export const productData = [
     img: photo6,
     category: "Новинки",
     inStock: false,
+    popularity: 40,
+    createdAt: "2025-06-23",
   },
   {
     _id: 14,
@@ -120,6 +146,8 @@ export const productData = [
     img: photo7,
     category: "Распродажа",
     inStock: true,
+    popularity: 20,
+    createdAt: "2025-07-02",
   },
   {
     _id: 15,
@@ -128,5 +156,7 @@ export const productData = [
     img: photo8,
     category: "Новинки",
     inStock: true,
+    popularity: 15,
+    createdAt: "2025-07-21",
   },
 ];
