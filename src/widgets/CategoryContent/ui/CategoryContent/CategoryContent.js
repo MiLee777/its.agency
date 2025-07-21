@@ -1,65 +1,75 @@
 import { Stack } from "@/shared/ui/Stack/Stack";
-import { CategoryItems } from "../../../CategoryItems/ui/CategoryItems/CategoryItems";
-import { Typography } from "@/shared/ui/Typography/Typography";
 import { productData } from "@/entities/ProductCard/lib/data";
 import { subscribeToResize, getWidth } from "@/shared/lib/getResize";
-import { Button } from "@/shared/ui/Button/Button";
-import styles from "./CategoryContent.module.scss";
-import { CategoryList } from "@/features/CategoryFilter/ui/CategoryList/CategoryList";
+import { SortControl } from "@/features/Sort/ui/SortControl/SortControl";
+import { CategoryControl } from "@/features/CategoryControl/ui/CategoryControl";
+import { CategoryItems } from "../../../CategoryItems/ui/CategoryItems/CategoryItems";
+import { getCategory, subscribe, unsubscribe } from "@/features/CategoryFilter/lib/categoryStore";
+import { filterProductsByCategory } from "@/features/CategoryFilter/lib/filterProductsByCategory";
+import { getSortedProducts } from "@/features/Sort/lib/getSortedProducts";
+import { CategoryHeader } from "../../../CategoryHeader/ui/CategoryHeader/CategoryHeader";
 
 export function CategoryContent() {
-  const products = CategoryItems();
-  const sorted = Typography({
-    fontStyle: "inter600",
-    size: 12,
-    children: "СНАЧАЛА ДОРОГИЕ",
+  const content = Stack({ direction: "column", gap: 44 });
+
+  let currentSort = "СНАЧАЛА ДОРОГИЕ";
+  let currentProducts = [];
+
+  const category = CategoryControl();
+  const sort = SortControl({
+    onChange: (newSort) => {
+      currentSort = newSort;
+      rerender();
+    },
   });
 
-  const productsHeader = Stack({
-    justify: "between",
-    children: [],
-  });
+  const productWrapper = Stack({ children: [] });
+  let productsHeader = Stack({ children: [] });
 
-  const content = Stack({
-    direction: "column",
-    gap: 44,
-    children: [productsHeader, products],
-  });
+  content.appendChild(category.overlay);
+  content.appendChild(sort.overlay);
+  content.appendChild(productsHeader);
+  content.appendChild(productWrapper);
 
-  const popup = Stack({
-    className: styles.popup,
-    children: [CategoryList()]
-  });
-  popup.style.display = "none";
+  function rerender() {
+    const selectedCategory = getCategory();
+    const filtered = filterProductsByCategory(productData, selectedCategory);
+    currentProducts = getSortedProducts(filtered, currentSort);
 
-  content.appendChild(popup);
+    productWrapper.innerHTML = "";
+    productWrapper.appendChild(CategoryItems({ items: currentProducts }));
 
-  function updateText(width) {
-    productsHeader.innerHTML = "";
+    const newHeader = CategoryHeader({
+      width: getWidth(),
+      itemCount: currentProducts.length,
+      categoryElement: category.element,
+      sortElement: sort.element,
+    });
 
-    let filter;
-    if (width < 900) {
-      filter = Button({
-        text: "ФИЛЬТРЫ",
-        className: styles.filterButton,
-        onClick: () => {
-          popup.style.display = popup.style.display === "none" ? "block" : "none";
-        },
-      });
-    } else {
-      filter = Typography({
-        fontStyle: "inter600",
-        size: 12,
-        children: `${productData.length} ТОВАРОВ`,
-      });
-    }
-
-    productsHeader.appendChild(filter);
-    productsHeader.appendChild(sorted);
+    productsHeader.replaceWith(newHeader);
+    productsHeader = newHeader;
   }
 
-  subscribeToResize(updateText);
-  updateText(getWidth());
+  const onResize = () => {
+    const newHeader = CategoryHeader({
+      width: getWidth(),
+      itemCount: currentProducts.length,
+      categoryElement: category.element,
+      sortElement: sort.element,
+    });
+
+    productsHeader.replaceWith(newHeader);
+    productsHeader = newHeader;
+  };
+
+  subscribe(rerender);
+  subscribeToResize(onResize);
+
+  content.destroy = () => {
+    unsubscribe(rerender);
+  };
+
+  rerender();
 
   return content;
 }

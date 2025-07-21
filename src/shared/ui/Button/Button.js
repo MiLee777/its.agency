@@ -4,7 +4,7 @@ import { getStyles } from "../../lib/getStyles.js";
 export function Button({
   text = "",
   variant = "default",
-  size = "m",
+  size,
   fullWidth = false,
   className = "",
   onClick,

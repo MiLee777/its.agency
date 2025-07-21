@@ -7,8 +7,4 @@
   @include desktop-m {
     grid-template-columns: repeat(3, 1fr);
   }
-
-  // @include tablet-m {
-  //   grid-template-columns: repeat(2, 1fr);
-  // }
 }
