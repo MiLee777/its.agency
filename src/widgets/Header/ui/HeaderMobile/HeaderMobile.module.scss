@@ -1,0 +1,11 @@
+@use "@/app/styles/mixin.scss" as mixins;
+@use "@/app/styles/media-queries.scss" as *;
+
+.header {
+  padding: var(--padding-30);
+  @include mixins.section-style;
+
+  @include tablet-m {
+    padding: var(--padding-20);
+  }
+}

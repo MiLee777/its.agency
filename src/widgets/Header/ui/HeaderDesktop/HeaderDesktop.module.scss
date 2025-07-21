@@ -1,0 +1,17 @@
+@use "@/app/styles/mixin.scss" as mixins;
+@use "@/app/styles/media-queries.scss" as *;
+
+.header {
+  padding: var(--padding-45) var(--padding-64);
+  @include mixins.section-style;
+
+  &__tel {
+    opacity: 0.3;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+  }
+
+  @include desktop-m {
+    padding: var(--padding-30);
+  }
+}

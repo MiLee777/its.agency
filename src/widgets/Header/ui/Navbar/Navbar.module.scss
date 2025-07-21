@@ -1,0 +1,8 @@
+@use "@/app/styles/media-queries.scss" as *;
+
+.nav {
+  @include tablet-l {
+    flex-direction: column;
+    padding: var(--padding-57) var(--padding-45);
+  }
+}
