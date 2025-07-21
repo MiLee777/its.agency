@@ -5,5 +5,8 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
