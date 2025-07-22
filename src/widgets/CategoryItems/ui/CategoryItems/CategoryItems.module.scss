@@ -4,7 +4,11 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 
-  @include desktop-m {
+    @include desktop-l {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include mobile-l {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
