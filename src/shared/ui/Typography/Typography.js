@@ -42,7 +42,7 @@ export function Typography({
 
 const sizeMap = {
   h1: "size72",
-  h2: "size36",
+  h2: "size30",
   h3: "size16",
   li: "size12",
   p: "size16",

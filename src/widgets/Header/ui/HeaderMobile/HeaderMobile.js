@@ -1,13 +1,13 @@
 import { Logo } from "@/shared/assets/icons/LogoIcon";
 import { Stack } from "@/shared/ui/Stack/Stack";
 import styles from "./HeaderMobile.module.scss";
-import { Cart } from "@/shared/ui/Cart/Cart";
 import { BurgerButton } from "@/shared/ui/BurgerButton/BurgerButton";
 import { MobileMenuPopup } from "../../../MobileMenuPopup/ui/MobileMenuPopup/MobileMenuPopup";
+import { CartButton } from "@/entities/Cart/ui/CartButton/CartButton";
 
 export function HeaderMobile() {
   const logo = Logo();
-  const cart = Cart();
+  const cart = CartButton();
 
   let menuOpen = false;
   let popup = null;
