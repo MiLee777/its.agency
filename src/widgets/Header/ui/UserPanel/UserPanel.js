@@ -2,13 +2,13 @@ import { SearchIcon } from "@/shared/assets/icons/SearchIcon";
 import { UserIcon } from "@/shared/assets/icons/UserIcons";
 import { WishlistIcon } from "@/shared/assets/icons/WishlistIcon";
 import { Stack } from "@/shared/ui/Stack/Stack";
-import { Cart } from "../../../../shared/ui/Cart/Cart";
+import { CartButton } from "@/entities/Cart/ui/CartButton/CartButton";
 
 export function UserPanel() {
   const search = SearchIcon();
   const user = UserIcon();
   const wishlist = WishlistIcon();
-  const cart = Cart();
+  const cart = CartButton();
 
   const userPanel = Stack({
     gap: 24,

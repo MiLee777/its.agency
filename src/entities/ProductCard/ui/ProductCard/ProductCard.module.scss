@@ -33,6 +33,13 @@
     transform: translateY(10px);
     transition: all 0.3s ease;
     z-index: 1;
+
+    @include tablet-l {
+      opacity: 1;
+      visibility: visible;
+      padding: 4px 12px !important;
+      background-color: #f2f2f2 !important;
+    }
   }
 
   &:hover &__btn {

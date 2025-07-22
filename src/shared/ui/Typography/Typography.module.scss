@@ -21,7 +21,7 @@ $text-aligns: (
 
 $font-sizes: (
   h1: --font-size-72,
-  h2: --font-size-36,
+  h2: --font-size-30,
   h3: --font-size-16,
   p: --font-size-16,
   li: --font-size-12,
@@ -50,6 +50,9 @@ $font-sizes: (
 }
 .size14 {
   font-size: var(--font-size-14);
+}
+.size30 {
+  font-size: var(--font-size-30);
 }
 .size36 {
   font-size: var(--font-size-36);

@@ -43,15 +43,21 @@
     }
   }
 
-  &.outline {
-    background-color: transparent;
-    border: 2px solid var(--color-background-green);
-    color: var(--color-background-green);
+  &.grey {
+    line-height: 112%;
+    color: var(--color-text-dark);
+    opacity: 0.4;
+  }
+
+  &.greySquare {
+    padding: 4px 12px;
+    background: #f2f2f2;
+    border-radius: 4px;
   }
 
   &.clear {
     background: none;
-    color: var(--color-background-green);
+    color: var(--color-background-dark);
   }
 
   &.fullWidth {

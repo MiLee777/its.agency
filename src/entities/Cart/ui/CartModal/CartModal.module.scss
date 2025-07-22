@@ -1,0 +1,52 @@
+@use "@/app/styles/media-queries.scss" as *;
+
+.modal {
+  width: 37.5rem;
+  background-color: var(--color-background-white);
+  padding: var(--padding-40);
+  height: 100vh;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  &__title {
+    line-height: 88%;
+    letter-spacing: -0.04em;
+  }
+
+  &__closeBtn {
+    font-size: 24px;
+    background: none;
+    border: none;
+  }
+
+  &__content {
+    height: 100%;
+  }
+
+  @include mobile-l {
+    width: 80%;
+  }
+}
+
+.content_img {
+  width: 96px;
+  height: 96px;
+
+  @include mobile-l {
+    display: none;
+  }
+}
+
+.content__title {
+  white-space: normal;
+  word-break: break-word;
+  max-width: 165px;
+}
+
+.content__row {
+  padding: 12px 0;
+  border-top: 1px solid var(--color-background-grey);
+}

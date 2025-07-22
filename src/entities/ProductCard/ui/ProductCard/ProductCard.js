@@ -3,6 +3,7 @@ import { Stack } from "@/shared/ui/Stack/Stack";
 import { Typography } from "@/shared/ui/Typography/Typography";
 import styles from "./ProductCard.module.scss";
 import { Image } from "@/shared/ui/Image/Image";
+import { addToCart } from "../../../Cart/lib/cartState";
 
 export function ProductCard({ product, isFull }) {
   const image = Image({
@@ -32,6 +33,7 @@ export function ProductCard({ product, isFull }) {
   const addToCartBtn = Button({
     variant: "green",
     text: "+",
+    onClick: () => addToCart(product),
     className: styles.product__btn,
   })
 
