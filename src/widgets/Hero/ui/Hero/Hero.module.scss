@@ -1,5 +1,15 @@
 @use "@/app/styles/mixin.scss" as mixins;
+@use "@/app/styles/media-queries.scss" as *;
 
 .hero {
   @include mixins.section-style;
+
+  @include tablet-m {
+    padding: var(--padding-20);
+  }
+}
+
+.title {
+  line-height: 88%;
+  letter-spacing: -0.04em;
 }

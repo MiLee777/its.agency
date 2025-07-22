@@ -5,6 +5,7 @@ import styles from "./Carousel.module.scss";
 import { slidesData } from "../../lib/data";
 import { ArrowLeft } from "@/shared/assets/icons/ArrowLeft";
 import { ArrowRight } from "@/shared/assets/icons/ArrowRight";
+import { BreadCrumbs } from "@/shared/ui/BreadCrumbs/BreadCrumbs";
 
 export function Carousel() {
   const carousel = Stack({
@@ -13,8 +14,10 @@ export function Carousel() {
     children: []
   });
 
+  const breadCrumbs = BreadCrumbs();
+
   const carouselInner = Stack({
-    className: styles.carouselInner,
+    className: styles.carousel__inner,
     children: []
   });
 
@@ -26,7 +29,7 @@ export function Carousel() {
       fontStyle: "inter300",
       color: "white",
       align: "center",
-      className: styles.title,
+      className: styles.carousel__title,
       children: slide.title
     });
 
@@ -35,7 +38,7 @@ export function Carousel() {
       fontStyle: "inter300",
       color: "white",
       align: "center",
-      className: styles.subtitle,
+      className: styles.carousel__subtitle,
       children: slide.subtitle
     });
 
@@ -44,14 +47,14 @@ export function Carousel() {
       align: "center",
       justify: "center",
       gap: 24,
-      className: styles.slideContent,
+      className: styles.carousel__slideContent,
       children: [title, subtitle]
     });
 
     const slideElement = Stack({
       justify: "center",
       align: "center",
-      className: `${styles.carouselSlide} ${index === 0 ? styles.active : ''}`,
+      className: `${styles.carousel__slide} ${index === 0 ? styles.active : ''}`,
       children: [content],
     });
     slideElement.style.backgroundImage = `url(${slide.image})`;
@@ -62,20 +65,20 @@ export function Carousel() {
   const AUTO_SLIDE_DELAY = 5000;
 
   const prevButton = Button({
-    className: `${styles.carouselNav} ${styles.prev}`,
+    className: `${styles.carousel__nav} ${styles.prev}`,
     children: ArrowLeft(),
     onClick: () => prevSlide()
   });
 
   const nextButton = Button({
-    className: `${styles.carouselNav} ${styles.next}`,
+    className: `${styles.carousel__nav} ${styles.next}`,
     children: ArrowRight(),
     onClick: () => nextSlide()
   });
 
   const pagination = Stack({
     gap: 8,
-    className: styles.carouselPagination,
+    className: styles.carousel__pagination,
     children: []
   });
 
@@ -86,10 +89,10 @@ export function Carousel() {
     pagination.appendChild(bullet);
   });
 
-  carousel.append(carouselInner, prevButton, nextButton, pagination);
+  carousel.append(breadCrumbs, carouselInner, prevButton, nextButton, pagination);
 
   let currentIndex = 0;
-  const slides = carouselInner.querySelectorAll(`.${styles.carouselSlide}`);
+  const slides = carouselInner.querySelectorAll(`.${styles.carousel__slide}`);
   const bullets = pagination.querySelectorAll(`.${styles.bullet}`);
 
   function goToSlide(index) {

@@ -1,0 +1,14 @@
+@use "@/app/styles/media-queries.scss" as *;
+
+.breadCrumbs {
+  opacity: 0.3;
+  position: absolute;
+  top: 32px;
+  left: 84px;
+  z-index: 11;
+
+  @include tablet-m {
+    color: var(--color-text-dark) !important;
+    position: static;
+  }
+}

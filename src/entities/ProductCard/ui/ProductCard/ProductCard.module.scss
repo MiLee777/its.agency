@@ -47,8 +47,13 @@
     opacity: 0.1;
   }
 
-  @include tablet-l {
-    width: clamp(9.75rem, calc(10vw + 50px), 17.375rem);
-    height: clamp(16.875rem, calc(15vw + 5rem), 23.5rem);
+  @include desktop-m {
+    width: clamp(12.75rem, calc(10vw + 3.125rem), 17.375rem);
+    height: clamp(19.5rem, calc(15vw + 5rem), 23.5rem);
+  }
+
+  @include mobile-xl {
+    width: clamp(9.75rem, calc(10vw + 3.125rem), 12.75rem);
+    height: clamp(16.875rem, calc(15vw + 5rem), 19.5rem);
   }
 }

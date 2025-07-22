@@ -1,6 +1,16 @@
 @use "@/app/styles/mixin.scss" as mixins;
+@use "@/app/styles/media-queries.scss" as *;
 
 .category {
   padding: var(--padding-72) var(--padding-64);
   @include mixins.section-style;
+
+  @include desktop-m {
+    gap: 3.75rem;
+  }
+
+  @include tablet-l {
+    padding: var(--padding-20);
+    justify-content: center;
+  }
 }

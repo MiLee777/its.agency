@@ -19,7 +19,7 @@ export function CategorySection() {
   function updateView(width) {
     categorySection.innerHTML = "";
 
-    if (width >= 900) {
+    if (width >= 1024) {
       categorySection.appendChild(categoryList);
       categorySection.appendChild(categoryContent);
     } else {
