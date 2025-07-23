@@ -10,7 +10,11 @@
   }
 
   @include tablet-l {
-    padding: var(--padding-20);
+    padding: var(--padding-72) var(--padding-20);
     justify-content: center;
+  }
+
+  @include tablet-m {
+    padding: var(--padding-20);
   }
 }

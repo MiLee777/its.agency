@@ -57,7 +57,6 @@ export function Carousel() {
       className: `${styles.carousel__slide} ${index === 0 ? styles.active : ''}`,
       children: [content],
     });
-    slideElement.style.backgroundImage = `url(${slide.image})`;
 
     carouselInner.appendChild(slideElement);
   });

@@ -1,7 +1,7 @@
 @use "./media-queries.scss" as *;
 
 @mixin section-style {
-  width: 1920px;
+  width: 100%;
   margin: auto;
 
   @include desktop-l {

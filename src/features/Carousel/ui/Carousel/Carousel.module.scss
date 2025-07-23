@@ -1,82 +1,90 @@
+@use "@/app/styles/mixin.scss" as mixins;
+
 .carousel {
   position: relative;
   width: 100%;
   height: 560px;
-  overflow: hidden;
-}
+  overflow-x: hidden;
 
-.carousel__inner {
-  height: 100%;
-  position: relative;
-}
-
-.carousel__slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-
-  &.active {
-    opacity: 1;
-  }
-}
-
-.carousel__slideContent {
-  width: 29.5rem;
-  padding: 0 var(--padding-20);
-}
-
-.carousel__title {
-  font-weight: 300;
-  line-height: 88%;
-  letter-spacing: -0.02em;
-}
-
-.carousel__subtitle {
-  line-height: 130%;
-  letter-spacing: 0.02em;
-}
-
-.carousel__nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-
-  &.prev {
-    left: 84px;
+  &__inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
   }
 
-  &.next {
-    right: 84px;
+  &__slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background-image: url(../../../../shared/assets/images/slide-img.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+
+    &.active {
+      opacity: 1;
+    }
   }
-}
 
-.carousel__pagination {
-  padding: var(--padding-13) var(--padding-24);
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 16px;
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-}
+  &__slideContent {
+    width: 29.5rem;
+    box-sizing: border-box;
+    padding: 0 var(--padding-20);
+  }
 
-.bullet {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--color-background-white);
-  opacity: 0.5;
-  transition: opacity 0.3s ease;
+  &__title {
+    font-weight: 300;
+    line-height: 88%;
+    letter-spacing: -0.02em;
+  }
 
-  &.active {
-    opacity: 1;
+  &__subtitle {
+    line-height: 130%;
+    letter-spacing: 0.02em;
+  }
+
+  &__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    &.prev {
+      left: 84px;
+    }
+
+    &.next {
+      right: 84px;
+    }
+  }
+
+  &__pagination {
+    padding: var(--padding-13) var(--padding-24);
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+
+  .bullet {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-background-white);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+
+    &.active {
+      opacity: 1;
+    }
   }
 }
