@@ -11,10 +11,15 @@ export function MobileMenuPopup({ onClose }) {
     children: [nav],
   });
 
-  const popup = createOverlay(container, onClose);
+  const popup = createOverlay(container, () => {
+    popup.destroy();
+    onClose?.();
+  });
+
   popup.style.display = "block";
 
   document.body.classList.add("no-scroll");
+
   popup.destroy = () => {
     document.body.classList.remove("no-scroll");
     popup.remove();
