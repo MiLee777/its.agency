@@ -1,6 +1,6 @@
 import { Stack } from "@/shared/ui/Stack/Stack";
 import { navData } from "../../lib/data";
-import { Link } from "../../../../shared/ui/Link/Link";
+import { Link } from "@/shared/ui/Link/Link";
 import styles from "./Navbar.module.scss";
 
 export function Navbar() {
