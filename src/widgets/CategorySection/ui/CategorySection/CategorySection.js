@@ -6,7 +6,6 @@ import { subscribeToResize, getWidth } from "@/shared/lib/getResize";
 
 export function CategorySection() {
   const categoryList = CategoryList();
-  const categoryContent = CategoryContent();
 
   const categorySection = Stack({
     tag: "section",
@@ -16,19 +15,27 @@ export function CategorySection() {
     children: [],
   });
 
+  let categoryContent = null;
+
+  async function initContent() {
+    categoryContent = await CategoryContent();
+    updateView(getWidth());
+  }
+
   function updateView(width) {
     categorySection.innerHTML = "";
 
     if (width >= 1024) {
       categorySection.appendChild(categoryList);
-      categorySection.appendChild(categoryContent);
+      if (categoryContent) categorySection.appendChild(categoryContent);
     } else {
-      categorySection.appendChild(categoryContent);
+      if (categoryContent) categorySection.appendChild(categoryContent);
     }
   }
 
   subscribeToResize(updateView);
-  updateView(getWidth());
+
+  initContent();
 
   return categorySection;
 }

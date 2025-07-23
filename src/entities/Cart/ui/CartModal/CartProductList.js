@@ -28,6 +28,12 @@ export function CartProductList() {
     gap: 12,
   });
 
+  const emptyText = Typography({
+    size: 36,
+    align: "center",
+    children: "В корзине ничего нет...",
+  });
+
   const content = Stack({
     direction: "column",
     gap: 10,
@@ -46,6 +52,16 @@ export function CartProductList() {
 
   function render(cart) {
     list.innerHTML = "";
+
+    if (!cart.length) {
+      header.style.display = "none";
+      footer.el.style.display = "none";
+      list.appendChild(emptyText);
+      return;
+    }
+
+    header.style.display = "";
+    footer.el.style.display = "";
     productsCount.textContent = `${cart.length} товаров`;
     cart.forEach((item) => {
       const itemEl = CartProductItem(item);

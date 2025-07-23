@@ -1,0 +1,18 @@
+.sortControl {
+  position: relative;
+  width: max-content;
+}
+
+.popupWrapper {
+  position: absolute;
+  top: -5rem;
+  right: 0;
+  z-index: 10;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 9;
+}

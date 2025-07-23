@@ -1,5 +1,4 @@
 import { Button } from "@/shared/ui/Button/Button";
-import { createOverlay } from "@/shared/ui/Overlay/Overlay";
 import { SortPopup } from "@/features/Sort/ui/SortPopup/SortPopup";
 import styles from "./SortControl.module.scss";
 import { ArrowDown } from "@/shared/assets/icons/ArrowDown";
@@ -7,48 +6,74 @@ import { Stack } from "@/shared/ui/Stack/Stack";
 
 export function SortControl({ onChange }) {
   let currentSort = "СНАЧАЛА ДОРОГИЕ";
+  let isOpen = false;
+  let overlayEl = null;
 
-  function onCloseSort() {
-    sortOverlay.style.display = "none";
-    document.body.style.overflow = "";
+  const sortButton = Button({
+    text: currentSort,
+    onClick: togglePopup,
+  });
+
+  const arrowDown = ArrowDown();
+
+  const popupWrapper = Stack({
+    className: styles.popupWrapper,
+    children: [],
+  });
+
+  const sortBtnWrapper = Stack({
+    direction: "column",
+    className: styles.sortControl,
+    children: [
+      Stack({
+        align: "center",
+        gap: 4,
+        children: [sortButton, arrowDown],
+      }),
+      popupWrapper,
+    ],
+  });
+
+  function togglePopup() {
+    if (isOpen) {
+      closePopup();
+    } else {
+      openPopup();
+    }
   }
 
-  function onOpenSort() {
+  function openPopup() {
     const popup = SortPopup({
       current: currentSort,
       onSelect: (value) => {
         currentSort = value;
         sortButton.innerText = value;
         onChange(value);
-        onCloseSort();
+        closePopup();
       },
     });
 
-    sortOverlay.innerHTML = "";
-    sortOverlay.appendChild(popup);
-    sortOverlay.style.display = "flex";
-    document.body.style.overflow = "hidden";
+    popupWrapper.innerHTML = "";
+    popupWrapper.appendChild(popup);
+
+    overlayEl = Stack({
+      className: styles.overlay,
+    });
+
+    document.body.appendChild(overlayEl);
+    overlayEl.addEventListener("click", closePopup);
+
+    isOpen = true;
   }
 
-  const sortOverlay = createOverlay(null, onCloseSort);
-  sortOverlay.style.display = "none";
-
-  const sortButton = Button({
-    text: currentSort,
-    className: styles.sortButton,
-    onClick: onOpenSort,
-  });
-
-  const arrowDown = ArrowDown();
-
-  const sortBtnWrapper = Stack({
-    align: "center",
-    gap: 4,
-    children: [sortButton, arrowDown],
-  })
+  function closePopup() {
+    popupWrapper.innerHTML = "";
+    overlayEl?.remove();
+    overlayEl = null;
+    isOpen = false;
+  }
 
   return {
     element: sortBtnWrapper,
-    overlay: sortOverlay,
   };
 }
