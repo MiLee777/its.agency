@@ -10,7 +10,7 @@ export function CategorySection() {
   const categorySection = Stack({
     tag: "section",
     justify: "between",
-    max: true,
+    gap: 24,
     className: styles.category,
     children: [],
   });

@@ -33,7 +33,10 @@ export function ProductCard({ product, isFull }) {
   const addToCartBtn = Button({
     variant: "green",
     text: "+",
-    onClick: () => addToCart(product),
+    onClick: () => {
+      addToCart(product);
+      showMessage();
+    },
     className: styles.product__btn,
   })
 
@@ -45,11 +48,24 @@ export function ProductCard({ product, isFull }) {
   const line = document.createElement("hr");
   line.className = styles.product__line;
 
+  const message = document.createElement("div");
+  message.className = styles.product__message;
+  message.textContent = "Добавлено в корзину";
+  message.style.opacity = "0";
+
+  function showMessage() {
+    message.style.opacity = "1";
+    setTimeout(() => {
+      message.style.opacity = "0";
+    }, 1500);
+  }
+
+
   const card = Stack({
     direction: "column",
     gap: 16,
     className: styles.product,
-    children: [imgContainer, title, priceContainer, line],
+    children: [imgContainer, title, priceContainer, line, message],
   });
 
   return card;

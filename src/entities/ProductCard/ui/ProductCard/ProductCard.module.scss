@@ -1,9 +1,11 @@
 @use "@/app/styles/media-queries.scss" as *;
 
 .product {
-  width: 17.375rem;
+  width: 100%;
+  max-width: 17.375rem;
   height: 23.5rem;
   transition: 0.3s;
+  position: relative;
 
   &:hover {
     opacity: 0.5;
@@ -54,13 +56,25 @@
     opacity: 0.1;
   }
 
-  @include desktop-m {
-    width: clamp(12.75rem, calc(10vw + 3.125rem), 17.375rem);
-    height: clamp(19.5rem, calc(15vw + 5rem), 23.5rem);
+  &__message {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.85);
+    color: var(--color-text-dark);
+    font-family: var(--font-family-inter400);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 5;
+    text-align: center;
   }
 
-  @include mobile-xl {
-    width: clamp(9.75rem, calc(10vw + 3.125rem), 12.75rem);
-    height: clamp(16.875rem, calc(15vw + 5rem), 19.5rem);
+  @include desktop-m {
+    width: clamp(9.75rem, calc(10vw + 3.125rem), 17.375rem);
+    height: clamp(16.875rem, calc(15vw + 5rem), 23.5rem);
   }
 }
